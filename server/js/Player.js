@@ -1,0 +1,20 @@
+module.exports = function (username, ruolo, lobby, posto, personaggio, vite, vite_max, alive, mano, equipaggiamenti, arma, arma_visione, visione, mod_visione, isActive, isReacting, canBang, status) {
+        this.username = username;
+        this.ruolo = ruolo;
+        this.lobby = lobby;
+        this.posto = posto;
+        this.personaggio = personaggio;
+        this.vite = vite;
+        this.vite_max = vite_max;
+        this.alive = true;
+        this.mano = mano;
+        this.equipaggiamenti = equipaggiamenti;
+        this.arma = arma;
+        this.arma_visione = arma_visione;
+        this.visione = visione;
+        this.mod_visione = mod_visione;
+        this.isActive = isActive;
+        this.isReacting = isReacting;
+        this.canBang = canBang;
+        this.status = status;
+}
