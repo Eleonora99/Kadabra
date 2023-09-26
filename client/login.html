@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login</title>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="css/login.css" type="text/css"/>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+  <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+ </head>
+ <module id="vue">
+ <body>
+ 
+    <div class ="row">
+      <div id="popup" class = "popup">
+        <div class="avviso"><p>{{ type }}</p>
+        <div class = "more"><span>{{ errore }}</span></div></div>
+    </div>
+
+      <div class ="col-6">
+         <form class="signup" action="/signup" method="post">
+    
+           <h1 class="title">Iscriviti</h1>
+           <i class="fa fa-user"></i>
+           <input type="text" placeholder="Username" required name="username"/>
+            <i class = "fa fa-envelope"></i>
+            <input type="email" placeholder="Email" size="30" required name="email"/>
+            <i class="fa fa-key"></i>
+           <input type="password" placeholder="Password" required name="password"/>
+    
+          <button class="button"><p>Sign up</p></button>
+        </form>
+      </div>
+      <div class="col-6">
+  
+         <form class="login" action="/login" method="post">
+    
+         <h1 class="title">Accedi</h1>
+         <i class="fa fa-user"></i>
+         <input type="text" placeholder="Username" required autofocus name="username"/>
+   
+         <i class="fa fa-key"></i>
+         <input type="password" placeholder="Password" required name="password"/>
+    
+         <button class="button"><p>Log in</p></button>
+        </form>
+     </div>  
+    </div>
+    </div>
+</body>
+</module>
+<script src="js/login.js"></script>
+</html>

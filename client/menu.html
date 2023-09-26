@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Menu</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <link rel="stylesheet" href="css/menu.css" />
+ </head>
+ <body>
+  <div class = "page"> <img src= "assets/images/menu_1.jpg" width= "1920" height= "1080"> 
+    <div class = "container">
+      <div class = "menu"></div>
+         <div class= "title">
+           <div class="neon">
+           <span class="text" data-text="kadabra!">KADABRA!</span>
+           <span class="gradient"></span>
+           <span class="spotlight"></span>
+           </div> 
+
+          <button onclick="server.emit('create table')" class = "gioca"><p>CREA TAVOLO</p></button>
+          
+          <form id='join_form' class="text">
+            <input  type="text" id="searchbar" placeholder="ID" size="4" minlength="4" maxlength="4" required/>
+            <button class="join-button" onclick="server.emit('join table', searchbar.value);" aria-placeholder="Unisciti"><p>Unisciti</p></button>
+          </form>
+          
+          <button onclick="window.location.href='/profile'" class = "gioca"><p>PROFILO</p></button>
+          
+          <button onclick="window.location.href='/leaderboard'" class = "gioca"><p>LEADERBOARD</p> </button>
+
+          <button onclick="window.location.href='/login'" class = "gioca"><p>LOG OUT</p> </button>
+
+        </div>
+         
+      </div>
+    </div>
+ </body>
+ <script src="js/menu.js"></script>
+</html>
+
+  
+  

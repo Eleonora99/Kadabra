@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEADERBOARD</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="css/leaderboard.css" />
+  <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"/>
+ </head>
+ <body>
+  <div class= "container-fluid">
+    <div class="page">
+      <button onclick="window.location.href='/menu'" class="indietro"><h6>INDIETRO </h6></button>
+      <header class = "navbar-nav">
+           <div class = "title">
+               <h1> LEADERBOARD </h1>
+          </div><br>
+            <div class="text-lg-start">
+          <h2> Benvenuto nella Leaderboard!</h2>
+          <h5> Qui verrano esposti i  10 nomi dei giocatori più forti di Kadabra, chi sale sul podio ha vantaggi esclusivi!<br> Cosa aspetti?  Corri a giocare!</h5>
+           </div>
+           <div class="board">
+          <model id="vue">
+           <!--PRIMO POSTO-->
+           
+           <div class = "row1"> 
+           <div class="progress_bar">
+            <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[0].exp) }" style="background: linear-gradient(to right, #daa520 35%,#fef3bc 68%);"> <div class = "nickname1"><h6> {{ classifica[0].username }} </h6></div>
+              <span>  {{ classifica[0].exp }} </span> 
+             </div>
+            </div>
+          </div>
+            
+             
+             <!--SECONDO POSTO-->
+             
+             <div class = "row1">  
+               <div class="progress_bar">
+              <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[1].exp) }" style="background: linear-gradient(to right, #7e96a0 35%,#c1dff9 68%);"> <div class = "nickname2"><h6> {{ classifica[1].username }} </h6></div>
+                <span> {{ classifica[1].exp }} </span> 
+               </div>
+              </div>
+            </div>
+            
+          
+             
+              <!--TERZO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[2].exp) }" style="background: linear-gradient(to right, #451c0b 35%,#a4623a 68%);"> <div class = "nickname3"><h6> {{ classifica[2].username }} </h6></div>
+                  <span> {{ classifica[2].exp }} </span> 
+                 </div>
+                </div>
+              </div>
+           
+              <!--QUARTO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[3].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[3].username }} </h6></div>
+                  <span> {{ classifica[3].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--QUINTO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[4].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[4].username }} </h6></div>
+                  <span> {{ classifica[4].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--SESTO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[5].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[5].username }} </h6></div>
+                  <span>  {{ classifica[5].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--SETTIMO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[6].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[6].username }} </h6></div>
+                  <span>  {{ classifica[6].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--OTTAVO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[7].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[7].username }} </h6></div>
+                  <span>  {{ classifica[7].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--NONO POSTO-->
+             
+             <div class = "row1"> 
+              <div class="progress_bar">
+                <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[8].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[8].username }} </h6></div>
+                  <span>  {{ classifica[8].exp }} </span> 
+                 </div>
+                </div>
+            </div>
+             
+              <!--DECIMO POSTO-->
+               <div class = "row1"> 
+                <div class="progress_bar">
+                  <div class="pro-bar" v-bind:style="{ width: calcolaExp(classifica[9].exp) }" style="background: linear-gradient(to right, #0a0c52 35%,#3a3ea4 68%);"> <div class = "nickname"><h6> {{ classifica[9].username }} </h6></div>
+                    <span>  {{ classifica[9].exp }} </span> 
+                   </div>
+                  </div>
+            </div>
+
+          </model>
+</body>
+<script src="js/leaderboard.js"></script>
+</html>

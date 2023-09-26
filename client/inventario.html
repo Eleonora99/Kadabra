@@ -1,0 +1,172 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Inventario </title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="css/inventario.css" />
+  <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+
+ </head>
+ <module id="vue">
+ <body>
+    <div class= "container-fluid">
+        <br><br>
+        <button onclick="window.location.href='/profile'" class="indietro"><p>INDIETRO</p></button>
+        <div class="page" >
+         <header class = "navbar-nav">
+            <div class ="col-sm-3">
+                <div class = "ppic">              
+                    <img :src="avatars[current]" width="100" height="100">
+                 </div>
+               </div>
+               <div class = "col-sm-5">
+                   <div class="user_name">
+                       <h1> {{ user.username }} </h1>
+                   </div>
+                </div>
+     
+               <div class = "col-ms-4">
+                 <h2> EXP :  {{ user.exp }} / 1.000 </h2>
+               <div class="progress_bar">
+                 <div class="pro-bar" v-bind:style="{ width: calcolaExp(user.exp) }" style="width: 0%; background: linear-gradient(to right,  #1d1389 35%,#5c8ab7 68%);">
+                   
+                 </div>
+               </div>
+             </div>
+            
+             <br> <br>
+            <div class = "descrizione"><p>Benvenuto nell'inventario! Qui potrai ammirare le magnifiche carte rappresentati i protagonisti delle avventure di Kadabra e studiarne regole e significati! </p></div>
+                <div class ="container-md">
+                     <div class="col-md-3">
+                        <div class = "legenda"><h3>Legenda</h3> <br>
+                            <div class ="container-sm">
+                                <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/target_free.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Target Generico</p>
+                                         <div class = "more"><span>Colpisci qualsiasi giocatore</span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/3214714.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Targt Specifico</p>
+                                         <div class = "more"><span>Colpisci un giocatore a distanza raggiungibile</span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/cross.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Negazione</p>
+                                         <div class = "more"><span> Manchi un bersaglio</span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/up.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Incremento</p>
+                                         <div class = "more"><span>Punti vita : +1</span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/3093185.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Decremento</p>
+                                         <div class = "more"><span> Punto vita: -1</span></div></div>
+                                     </div></div>
+                                <br>
+                                <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/mira.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Mira</p>
+                                         <div class = "more"><span>Colpisci un giocatore alla distanza indicata</span></div></div>
+                                     </div></div>
+                                <br>
+                                <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/scarta.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Scarta</p>
+                                         <div class = "more"><span> Scarta una carta</span></div></div>
+                                     </div></div>
+                                <br>
+                                <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/pesca.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Pesca</p>
+                                         <div class = "more"><span> Pesca una carta</span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/moltiplicatore.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Moltiplicatore</p>
+                                         <div class = "more"><span> 3 target/carte = colpisci tutti i giocatori/pesca n° carte </span></div></div>
+                                     </div></div>
+                                <br>
+                                 <div class= "row">
+                                     <div class = "col-sm-3"><img src="assets/images/legend/i_c.png" width="30" height="30"></div>
+                                     <div class = "col-sm-9"><div class="testo"><p>Seme</p>
+                                         <div class = "more"><span>Indica con quale seme è valido l'effetto</span></div></div>
+                                     </div></div>
+                                <br>
+                            </div>
+                      </div>
+                </div>
+                 <div class ="col-md-9">
+                     <div class="collezione"><h3>Le Carte</h3>
+                        <div class="container">
+                         <div class ="row">
+                             <div class ="col-4"> <img src="assets/cards/Bang!_2_F.png" width="160" height="250"></div> 
+                             <div class ="col-4"> <img src="assets/cards/Birra_6_C.png" width="160" height="250"></div> 
+                             <div class ="col-4"> <img src="assets/cards/Cat Balou_9_Q.png" width="160" height="250"></div> 
+                            
+                          </div><br>
+
+                        <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Duello_8_F.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Diligenza_9_Pa.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Emporio_12_P.png" width="160" height="250"></div> 
+                            
+                        </div><br>
+
+                        <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Indiani!_13_Q.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Panico!_8_Q.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Wells Fargo_3_C.png" width="160" height="250"></div> 
+                            
+                        </div><br>
+
+                         <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Saloon_5_C.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Gatling_10_C.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Mancato!_2_P.png" width="160" height="250"></div> 
+                           
+                        </div><br>
+                     
+                        <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Dinamite_2_C.png" width="160" height="250"></div> 
+                             <div class ="col-4"> <img src="assets/cards/Mustang_8_C.png" width="160" height="250"></div> 
+                             <div class ="col-4"> <img src="assets/cards/Mirino_14_P.png" width="160" height="250"></div> 
+                            
+                        </div><br>
+                    
+                        <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Barile_12_P.png"  width="160" height="250"></div>
+                            <div class ="col-4"> <img src="assets/cards/Schofield_13_P.png" width="160" height="250"></div> 
+                            <div class ="col-4"> <img src="assets/cards/Volcanic_10_F.png" width="160" height="250"></div> 
+                                
+                        </div><br>
+                       
+                     
+                        <div class ="row">
+                            <div class ="col-4"> <img src="assets/cards/Remington_13_F.png" width="160" height="250"></div> 
+                              <div class ="col-4"> <img src="assets/cards/Rev. Carabine_14_F.png" width="160" height="250"></div>  
+                             <div class ="col-4"> <img src="assets/cards/Winchester_8_P.png" width="160" height="250"></div>  
+                       </div><br>
+
+                    </div>
+                </div>
+            </div>
+            </div>
+         </header>
+    </div>
+    </div>
+ </body>
+</module>
+<script src="js/inventario.js"></script>
+</html>

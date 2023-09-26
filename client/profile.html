@@ -1,0 +1,280 @@
+<!DOCTYPE html>
+<html>
+ <head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Profile</title>
+  <script src="/socket.io/socket.io.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+  <link rel="stylesheet" href="css/profile.css" />
+  <link href="css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen">
+  <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.3.0/css/font-awesome.min.css">
+ </head>
+ <model id="vue">
+ <body>
+  <div class= "container-fluid"><button onclick="window.location.href='/menu'" class="indietro"><h6>INDIETRO</h6></button>
+   <div class="page" >
+    <header class = "navbar-nav">
+      <div class="row">
+       <div class ="col-sm-3">
+           <div class = "ppic">
+              <img @click="cambiaAvatar" :src="avatars[current]" style="cursor:pointer" width="100" height="100">
+            </div>
+          </div>
+          <div class = "col-sm-4">
+              <div class="user_name">
+                  <h2> {{ user.username }}  </h2>
+              </div>
+                <button v-bind:class="[ diversa ? activeClass : errorClass, '']" onclick="server.emit('setUserData',{username: vue.user.username}, {$set: { avatar: vue.current }}); vue.diversa = false">
+                  <small>salva</small>
+                </button>
+              </div>
+
+          <div class = "col-sm-5">
+            <h3> EXP :  {{ user.exp }} / 1.000 </h3>
+          <div class="progress_bar">
+            <div class="pro-bar" v-bind:style="{ width: calcolaExp(user.exp) }" style="background: linear-gradient(to right,  #1d1389 35%,#4191e1 68%);">
+            </div>
+          </div>
+        </div>
+      </div>
+    
+          
+          <div class = "container">
+    
+            <div class="Recent_Act">
+              <div class ="recent">
+                <div class ="col-sm-4">
+                   <h2> Statistiche Giocatore</h2> 
+                   <button onclick="window.location.href='/inventario'"><p>Inventario</p></button>                    
+                </div>
+               
+                
+                
+                <div class ="col-sm-2"> 
+                  <div class= "Name"><p> Partite Giocate </p> </div>
+                  <div class= "giocate"> <div class= "level"><h4> {{ user.played_games }} </h4></div>
+                </div>
+                </div>                 
+        <!------------------------------------>    
+             
+                <div class ="col-sm-2">
+                  <div class = "Name"><p> Partite Vinte </p></div>
+                <div class = "vinte"><div class= "level"><h4> {{ user.winned_games }} </h4></div></div>
+                </div>
+    
+        <!------------------------------------> 
+         
+         <div class ="col-sm-2"> 
+           <div class= "Name"><p> Ultimo Accesso <p></div>
+            <div class = "ultima_tsp"><div class= "level1"><h4> {{ user.last_seen }} </h4></div></div>
+            </div>
+        
+               
+              </div>
+            </div>
+      
+        <!-- PARTE INFERIORE-->
+     
+        <div class = "row">
+         
+          <!-- PARTE INFERIORE DI SINISTRA-->
+       
+          <div  class = "col-6">
+          
+            <div class = "achivments">
+              <div class = "title">
+              <h4>ACHIVEMENTS</h4>
+              </div>
+             <div class = "toscroll">
+             
+   <!-------------------------------------------------------->          
+              <div class ="row"> 
+                <div class ="col-3">
+                   <div class = "apic"> 
+                     <img src =https://openclipart.org/image/800px/270760 width="60" height="50"></img>
+                    </div> 
+                 </div>
+                 <div class = "col-5">
+                    <h6>A CARTE SCOPERTE </h6> 
+                     <div class="testo" style="text-overflow:ellipsis;">
+                     Gioca la tua prima partita a Kadabra!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>25exp</p>
+                </div><!--cancellami qui-->
+             </div>
+    <!-------------------------------------------------------->           
+           <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/297814 width="65" height="50"></img>
+                   </div> 
+                </div><div class = "col-5">
+                   <h6> COPPIA DI ASSI </h6>
+                   <div class="testo" style="text-overflow:ellipsis;">
+                     Aggiungi un amico!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>50exp</p>
+                </div><!--cancellami qui-->
+             <br>
+             </div>
+    <!-------------------------------------------------------->              
+            <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/319761 width="60" height="60">
+                  </div>
+              </div><div class = "col-5">
+                   <h6>FORTUNA DEL PRINCIPIANTE </h6>
+                    <div class="testo" style="text-overflow:ellipsis;"> Vinci 3 partite a Kadabra!
+                     </div>
+                 </div>
+                 <div class = "col-4">
+                   <p>150exp</p>
+                </div><!--cancellami qui-->
+              <br>
+           </div>
+   <!-------------------------------------------------------->             
+              <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/170999 width="60" height="50">
+                   </div> 
+              </div><div class = "col-5">
+                   <h6> POKER FACE </h6>
+                    <div class="testo" style="text-overflow:ellipsis;">
+                     Vinci 5 partite e acquista un avatar!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>300exp</p>
+                </div><!--cancellami qui-->
+             <br>
+           </div>
+   <!-------------------------------------------------------->         
+           <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/222448 width="60" height="60">
+                   </div> 
+                </div><div class = "col-5">
+                   <h6> SCUDIERO DEL RE </h6>
+                  <div class="testo" style="text-overflow:ellipsis;">
+                     Gioca 20 parite a Kadabra!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>500exp</p>
+                </div><!--cancellami qui-->
+             <br>
+           </div>
+     <!-------------------------------------------------------->           
+              <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/284937 width="50" height="60">
+                   </div> 
+                </div><div class = "col-5">
+                   <h6> CAVALIERE DI PICCHE </h6><div class="testo" style="text-overflow:ellipsis;">
+                     Vinci 10 parite a Kadabra!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>800exp</p>
+                </div><!--cancellami qui-->
+             <br>
+           </div>
+     <!-------------------------------------------------------->    
+              <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/282008 width="60" height="40">
+                   </div> 
+                </div><div class = "col-5">
+                   <h6> MUTAFORMA  </h6><div class="testo" style="text-overflow:ellipsis;">
+                     Ottieni almeno 5 avatar</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>1000exp</p>
+                </div><!--cancellami qui-->
+             <br> 
+           </div>
+     <!-------------------------------------------------------->             
+           <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/228872 width="50" height="60">
+                   </div> 
+             </div><div class = "col-5">
+                   <h6> STREGONE BIANCO </h6><div class="testo" style="text-overflow:ellipsis;">
+                     Gioca 30 partite e sblocca lo stemma Stregone</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>1500exp</p>
+                </div><!--cancellami qui-->
+            <br>
+          </div>
+  <!-------------------------------------------------------->    
+              <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src = https://openclipart.org/image/800px/289194 width="45" height="60">
+                  </div> 
+                </div>
+                <div class = "col-5">
+                   <h6> PALADINO </h6><div class="testo" style="text-overflow:ellipsis;">
+                     Gioca 40 partite e sblocca lo stemma Paladino</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>2000exp</p>
+                </div><!--cancellami qui-->
+                <br>
+               </div>
+    <!-------------------------------------------------------->            
+              <div class = "row">
+                <div class ="col-3">
+                   <div class = "apic">
+                     <img src =https://openclipart.org/image/800px/308015 width="60" height="60">
+                  </div></div>
+                <br><div class = "col-5">
+                   <h6> RE DI CUORI </h6><div class="testo" style="text-overflow:ellipsis;">
+                     Vinci 20 parite a Kadabra! e sblocca lo stemma RE!</div>
+                 </div>
+                 <div class = "col-4">
+                   <p>3000exp</p>
+                </div><!--cancellami qui-->
+             </div>
+            </div>
+          </div>
+        </div>
+     
+      <!-- PARTE DESTRA -->
+
+        <div  class = "col-6">
+          
+             
+          <div  class = "shortcuts"><h5>Lista Amici</h5>
+              <input id='friend_username' type="text" placeholder="Inserisci Username" required/>
+              <button class="join-button" onclick="server.emit('addFriend', { username: vue.user.username }, { $addToSet: { friends: friend_username.value }}, friend_username.value);" aria-placeholder="Unisciti"><p>Aggiungi</p></button>
+            <div class = "toscroll">
+                <li v-for="friend in user.friends">
+                    <div class="row">
+                      <div class="col-6" style="width: 100%;">{{ friend }}<button style="width: auto;" onclick="server.emit('removeFriend', { username: vue.user.username }, { $pull: { friends: this.parentNode.textContent }});"> <i class="fa fa-trash"></i></button></div>
+                    </div>
+                </li>
+            </div>
+          </div>
+        
+          <div class= "contacts">
+            <div class = "row"><a href = "/help">Help</a></div>
+            <div class = "row"><p>contacts: progetto.kadabra@gmail.com</p></div> 
+          </div>
+        </div>
+      </div>
+    </header>      
+  </body> 
+</model>
+<script src="js/profile.js"></script>
+</html>
+  

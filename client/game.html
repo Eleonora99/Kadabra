@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html>
+<head>
+     <script src="/socket.io/socket.io.js"></script>
+
+     <link rel="stylesheet" type="text/css" href="css/game.css" />
+</head>
+<body>
+     <div class="grid-container">
+          <div class="grid-item-sedia" id="S4"><button class="infoButton">Info</button><p class="Ginfo" id="G4Nome">Nome</p> | M: <p class="Ginfo" id="G4Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G4Vite" name="puntiVita"> </p><div class="grid-item" id="G4"><div class="equip" id="G4equip">Equip</div><div class="arma" id="G4arma">A</div></div></div>
+          <div class="grid-item-sedia" id="S5"><button class="infoButton">Info</button><p class="Ginfo" id="G5Nome">Nome</p> | M: <p class="Ginfo" id="G5Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G5Vite" name="puntiVita"> </p><div class="grid-item" id="G5"><div class="equip" id="G5equip">Equip</div><div class="arma" id="G5arma">A</div></div></div>
+          <div class="grid-item-sedia" id="S6"><button class="infoButton">Info</button><p class="Ginfo" id="G6Nome">Nome</p> | M: <p class="Ginfo" id="G6Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G6Vite" name="puntiVita"> </p><div class="grid-item" id="G6"><div class="equip" id="G6equip">Equip</div><div class="arma" id="G6arma">A</div></div></div>  
+          <div class="grid-item-sedia" id="S3"><button class="infoButton">Info</button><p class="Ginfo" id="G3Nome">Nome</p> | M: <p class="Ginfo" id="G3Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G3Vite" name="puntiVita"> </p><div class="grid-item" id="G3"><div class="equip" id="G3equip">Equip</div><div class="arma" id="G3arma">A</div></div></div>
+          <div class="grid-container centrotavolo" id="centro">
+               <div class="grid-item single_card_container" id="scarti">Scarti</div>
+               <div class="grid-item single_card_container" id="deck">Deck<div class="deckinfo" id="deckinfo"></div></div>
+               <div class="grid-item single_card_container" id="attiva">Attiva</div>
+               <p id="hint" class="serverHint"> Buona Fortuna! </p>
+               <div class="grid-item extra_zone" id="extra">Extra</div>
+          </div>
+          <div class="grid-item-sedia" id="S7"><button class="infoButton">Info</button><p class="Ginfo" id="G7Nome">Nome</p> | M: <p class="Ginfo" id="G7Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G7Vite" name="puntiVita"> </p><div class="grid-item" id="G7"><div class="equip" id="G7equip">Equip</div><div class="arma" id="G7arma">A</div></div></div>  
+          <div class="grid-item-sedia" id="S2"><button class="infoButton">Info</button><p class="Ginfo" id="G2Nome">Nome</p> | M: <p class="Ginfo" id="G2Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G2Vite" name="puntiVita"> </p><div class="grid-item" id="G2"><div class="equip" id="G2equip">Equip</div><div class="arma" id="G2arma">A</div></div></div>
+          <div class="grid-item-sedia" id="S8"><button class="infoButton">Info</button><p class="Ginfo" id="G8Nome">Nome</p> | M: <p class="Ginfo" id="G8Mano" name="carteInMano"> </p> | V: <p class="Ginfo" id="G8Vite" name="puntiVita"> </p><div class="grid-item" id="G8"><div class="equip" id="G8equip">Equip</div><div class="arma" id="G8arma">A</div></div></div>
+          <div class="grid-item-chat">                         
+               <div class="chatstyle" id="chat"> 
+                    <div class="chatPop" id="chat-popup">
+                         <ul id="messages"></ul>
+                    </div>
+                    <div id="chat_form" class="formstyle">
+                         <input id="chatmsg" style="width: auto;" autocomplete="off" onfocus="openChatPopup()" placeholder="Click here to Chat..." />
+                         <button style="width: auto" onclick="sendMessage(chatmsg.value), chatmsg.value=''">Send</button>
+                    </div>
+               </div>
+          </div>  
+          <div class="grid-item-sedia client" id="SC"><button class="passButton" id='passa' onclick="server.emit('passa', sedie[0].nextPlayer)">Passa</button><p class="Ginfo" id="CNome">Nome</p> | M: <p class="Ginfo" id="CMano" name="carteInMano"> </p> | V: <p class="Ginfo" id="CVite" name="puntiVita"> </p><div class="grid-item" id="carte"><div class="equip" id="equip">Equip</div><div class="arma" id="arma">A</div></div></div>   
+          <div class="grid-item mano hand hhand-compact active-hand" id='mano'></div>
+     </div>
+</body>
+<script src="js/game.js"></script>
+</html>

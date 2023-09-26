@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+     <head>
+          <meta charset="UTF-8">
+          <meta http-equiv="X-UA-Compatible" content="IE=edge">
+          <meta name="viewport" content="width=device-width, initial-scale=1.0">
+          <title>Tavolo</title>
+          <script src="/socket.io/socket.io.js"></script>
+          <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+          <link rel="stylesheet" href="css/tavolo.css"/>
+          <link rel="stylesheet" href="css/bootstrap/css/bootstrap.css"/>
+          <!-- <link href="./css/bootstrap/css/bootstrap.css" rel="stylesheet" media="screen"> -->
+     </head>
+     <module id="vue">
+     <body>
+     <div class= "container">
+          <div class ="page">
+               <div class="row">
+                    <div class="col align-self-start">
+                         <div class="infoplayer"><h1>Username:</h1> 
+                              <div id="vue" class='infocontent'> {{ username }} </div>
+                         </div>
+                         <div class="chatstyle" id="chat"> 
+                              <div class="chatPop" id="chat-popup">
+                                   <ul id="messages"></ul>
+                              </div>
+                              <iframe name="chat" style="display:none;"></iframe>
+                              <div id="chat_form" style="width: auto;">
+                                   <form target="chat">
+                                        <div class="row">
+                                             <div class="col-9"><input style="width: 100%;" id="chatmsg" autocomplete="off" onfocus="openChatPopup()" placeholder="Click here to Chat..." /></div>
+                                             <div class="col-3"><button onclick="sendMessage(chatmsg.value), chatmsg.value=''">Send</button></div>
+                                        </div>
+                                   </form>
+                              </div>
+                         </div>
+                    </div>
+                    <div class="col align-self-center">
+                         <div style="top: 20%; left: 42vw; position: absolute;">
+                              <h1>LISTA GIOCATORI</h1>
+                              <div class ="lista">
+                                   <ul class="lista-gioc" v-for="giocatore in table.giocatori">
+                                        <p>{{ giocatore }}</p>
+                                   </ul>
+                              </div>
+                         </div> 
+                    </div>
+                    <div class="col align-self-end">
+                         <div class="infotable">
+                              <div><h1>Tavolo:</h1> <div class='infocontent' id='infoT_T'> {{ table.id }} </div></div>
+                              <br>
+                              <div><h1>Online:</h1> <div class='infocontent' id='infoO_O'> {{ table.connessi }} </div></div>
+                         </div>
+                         <button class="start-button" onclick="server.emit('start game')">Start Game</button>
+                    </div>
+               </div>
+          </div>
+     </div>
+     </body>
+</module>
+<script src="js/tavolo.js"></script>
+</html>
