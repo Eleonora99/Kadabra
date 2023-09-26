@@ -1,0 +1,259 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&family=New+Rocker&display=swap');
+
+body {
+     display: static;
+    align-items: center;
+    font-family: 'New Rocker', cursive;
+    color: lavander;
+    background-size: content;
+    background-repeat: no-repeat;
+  height:100%;
+
+}
+
+
+
+p{
+  font-family: 'New Rocker', cursive;
+  color:white;
+  font-size: 15px;
+  text-decoration: none
+}
+
+
+.menu{
+   height: 1000px;
+    width: 300px;
+
+    align-items: center;
+    justify-content: center;
+    background-color: black;
+    margin-top: -1150px;
+    margin-left: 250px;
+    
+  background-image: linear-gradient( rgba(00,00,00, 0)70%,rgba(255,255,255, 0) 60%, rgba(255,255,255, 0.5)100%);
+ mix-blend-mode: overlay;
+   
+}
+
+form.search-bar input[type=text] {
+  margin-top:  50px;
+  padding: 8px;
+  font-size: 17px;
+  border-radius: 12px;
+  margin-left: 50px;
+  width: 60%;
+  background-color:rgb(19 19 70);
+  opacity: 0.8;
+  color:white;
+  font-family: 'New Rocker', cursive;
+}
+
+
+form.search-bar:after {
+  content: "";
+  clear: both;
+  display: table;
+}
+
+
+.gioca{
+   height: 50px;
+  width: 150px;
+  background-color: white;
+  margin-top: 50px;
+ margin-left: 80px;
+  border:2px solid rgba(0,0,0,0.2);
+    border-radius:12px;
+    background-color: rgb(19 19 70);
+	  border-bottom-color:rgb(176 196 222);
+		background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+  mix-blend-mode: lighten;	
+}
+
+.gioca:hover{
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+}
+.gioca:active{
+  background-color: rgb(176,196,222);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.profilo:hover{
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+}
+.profilo:active{
+  background-color: rgb(176,196,222);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.impostazioni:hover{ /* ora leaderboard*/
+ box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+}
+.impostazioni:active{
+  background-color: rgb(176,196,222);
+  box-shadow: 0 5px #666;
+  transform: translateY(4px);
+}
+
+.profilo{
+   height: 50px;
+  width: 150px;
+  background-color: white;
+  margin-left: 80px;
+  border:2px solid rgba(0,0,0,0.2);
+    border-radius:12px;;
+    background-color: rgb(19 19 70);
+	  border-bottom-color:rgb(176 196 222);
+		background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+  mix-blend-mode: lighten;
+		
+}
+
+.impostazioni{ /* ora leaderboard*/
+   height: 50px;
+  width: 150px;
+  background-color: white;
+
+ margin-left: 80px;
+  border:2px solid rgba(0,0,0,0.2);
+    border-radius:12px;;
+    background-color: rgb(19 19 70);
+	  border-bottom-color:rgb(176 196 222);
+		background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+  mix-blend-mode: lighten;
+		
+}
+
+.neon {
+    position: relative;
+    overflow: hidden;
+    filter: brightness(300%);
+}
+  
+.title{ font-size: 55px;
+  margin-top: -800px;
+  margin-left:250px;
+  width: 289px;
+    height: 100px;
+  
+}
+
+.text {
+    
+    background-color: black;
+    color: white;
+   
+    font-weight: bold;
+    font-family: 'New Rocker',      cursive;
+    text-transform: uppercase;
+    
+}
+
+.text::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    filter: blur(1.5px);
+    mix-blend-mode: difference;
+}
+
+.gradient {
+
+    position: absolute;
+   
+    background: linear-gradient(45deg, blue,rgb(135 206 250),rgb(176 196 222), rgb(0   0 139),rgb(135 206 250),rgb(176 196 222),rgb(0   0 139),rgb(135 206 250),rgb(176 196 222),blue);
+    top:0 ;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    mix-blend-mode: multiply;
+}
+
+.spotlight {
+   
+    position: absolute;
+    top:-100%;
+    left: -100%;
+    right: 0;
+    bottom: 0;
+    background: 
+       radial-gradient(
+           circle,
+            white,
+            transparent 25%
+        ) center/ 25% 25%,
+        radial-gradient(
+           circle,
+            white,
+            black 25%
+        ) center / 12.5% 12.5%;
+    animation: light 8s linear infinite;
+    mix-blend-mode: color-dodge;
+   
+
+}
+
+h1{
+  color: lavander;
+}
+
+@keyframes light {
+    to {
+        transform: translate(50%, 50%);
+    }
+}
+
+
+
+input{
+  height: 43px;
+  width: 60px;
+  background-color:  rgba(40, 18, 90, 0.61);
+  margin-top: 50px;
+ margin-left: 80px;
+  border:2px solid lavander;
+    border-radius:12px;;
+  
+  mix-blend-mode: lighten;
+  font-size: 20px;
+  color:rgb(255, 255, 255);
+  font-family: 'New Rocker', cursive;
+}
+
+button{
+  height: 50px;
+  width: 70px;
+  background-color: white;
+
+  border:2px solid rgba(0,0,0,0.2);
+    border-radius:12px;;
+    background-color: rgb(19 19 70);
+	  border-bottom-color:rgb(176 196 222);
+		background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+  mix-blend-mode: lighten;
+
+}
+
+.join-button{
+  height: 50px;
+  width: 70px;
+  background-color: white;
+
+  border:2px solid rgba(0,0,0,0.2);
+    border-radius:12px;;
+    background-color: rgb(19 19 70);
+	  border-bottom-color:rgb(176 196 222);
+		background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+  mix-blend-mode: lighten;
+}
+.join-button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+ }
+ .join-button:active{
+   background-color: rgb(176,196,222);
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+ }

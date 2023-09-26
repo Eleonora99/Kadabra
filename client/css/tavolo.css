@@ -1,0 +1,171 @@
+@import url('https://fonts.googleapis.com/css2?family=Girassol&family=New+Rocker&display=swap');
+
+body{
+     
+     background: radial-gradient(
+         circle,
+         rgb(19 19 70) 100%,
+         #0e0e23  70%
+        );
+        font-family: 'New Rocker', cursive;
+        /* background-image: url('/assets/images/table_1.jpg');
+        background-repeat: no-repeat;
+        background-attachment: fixed;
+        background-size: 100% 100%; */
+ }
+ 
+.row{
+     width: 100%;
+}
+
+.page{
+     background-size:cover;
+     display: flex;
+     border-radius: 10px;
+     font-family: 'New Rocker', cursive;
+     color: rgb(176 196 222);
+     height: 1vh;
+}
+
+h1{
+     color:rgb(13, 13, 106);
+     width: 50%;
+     height: 50%;
+     font-size: 80px;
+     color: #fff;
+     animation: glow 1s ease-in-out infinite alternate;
+}
+   
+@keyframes glow {
+     from {
+          text-shadow: 0 0 10px #fff, 0 0 20px #fff, 0 0 30px #140172, 0 0 40px #14015b, 0 0 50px #160082, 0 0 60px #2600e6, 0 0 70px #0d014a;
+     }
+     to {
+          text-shadow: 0 0 20px #fff, 0 0 30px #7f4dff, 0 0 40px #5c4dff, 0 0 50px #4d4dff, 0 0 60px #4d9dff, 0 0 70px #5c4dff, 0 0 80px #0049c6;
+     }
+}
+
+.lista{
+     position: fixed;
+     padding: 5%;
+     background-color: rgba(88, 88, 88, 0) !important;
+     border: 1px solid black;
+     border-radius: 5px ;
+     background: transparent;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.914);
+}
+
+.lista-gioc{
+     display:block;
+     padding:0;
+     list-style-type: none;
+     text-align: center;
+}
+.lista-gioc > p {
+     font-size: 1,5vw;
+     margin: 5px;
+}
+
+.topbar{
+     display: flex;  
+     flex-direction: column;
+     align-items: center;
+}
+ 
+.infotable{
+     position: absolute;
+     top: 1%;
+     right: 1%;
+     text-align: right;
+     font-size: large;
+}
+ 
+.infoplayer{
+     position: fixed;
+     left: 10px;
+     text-align: left;
+     font-size: large;
+}
+
+.infocontent{
+     font-size: xx-large;
+}
+
+.chatstyle{
+     word-wrap: break-word;
+     position: absolute;
+     width: 30%;
+     background: transparent;
+     box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0, 0, 0, 0.914);
+     color: white;
+     bottom: 1%;
+     left: 1%;
+}
+ 
+.chatPop {
+     position: relative;
+     width: 100%;
+     height: 200px;
+     overflow: auto;
+}
+
+#messages {
+    width: auto; /*Larghezza finestra chat (== larghezza form + bottone)*/
+    list-style-type: none;
+    margin: 0;
+    padding: 0;
+}
+ 
+#messages > li {
+    background: #ffffff;
+    padding: 5px 10px;
+}
+
+#messages > li:nth-child(odd) {
+    background: #efefef;
+}
+ 
+.standardmessage_css {
+     color: rgb(0, 0, 0);
+}
+ 
+.connection_css {
+     text-align: center;
+     color: rgb(25, 175, 25);
+}
+ 
+.table_connection_css {
+     text-align: center;
+     background: rgba(0, 235, 0, 0.5) !important;
+}
+ 
+.disconnection_css {
+     text-align: center;
+     color: rgb(184, 27, 27);
+}
+ 
+.table_disconnection_css {
+     text-align: center;
+    background: rgba(184, 27, 27, 0.5) !important;
+}
+
+.center {
+    position: fixed;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.user-list {
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    height: 80%;
+    border: 3px solid purple;
+}
+
+.start-button {
+    position: absolute;
+    right: 1%;
+    bottom: 1%;
+}

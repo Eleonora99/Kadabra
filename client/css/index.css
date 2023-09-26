@@ -1,0 +1,95 @@
+
+@import url('https://fonts.googleapis.com/css2?family=Girassol&family=New+Rocker&display=swap');
+
+body {
+    font-family: 'New Rocker', cursive;
+    background: radial-gradient(
+     circle,
+     rgb(19 19 70) 0%,
+     #0e0e23  30%);
+  overflow-x: hidden;
+  padding: 40px;
+  text-align: center;
+}
+
+.words{
+  color: transparent;
+  
+  font-size: 0;
+  line-height: 1;
+}  
+.words span {
+    color:#0e0e23;
+    font-size: 120px;
+    display: inline-block;
+    animation: move 4s ease-in-out infinite;
+ 
+}
+.words span:nth-child(2) { animation-delay: 0.5s; }
+.words span:nth-child(3) { animation-delay: 1.0s; }
+.words span:nth-child(4) { animation-delay: 1.5s; }
+.words span:nth-child(5) { animation-delay: 2.0s; }
+.words span:nth-child(6) { animation-delay: 2.5s; }
+.words span:nth-child(7) { animation-delay: 3.0s; }
+@keyframes move{
+  0% {
+    transform: translate(-33%, 0);
+  }
+  50% {
+   /* background: -webkit-radial-gradient(rgba(238, 238, 238, 0) 0%, rgb(40, 38, 141) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;*/
+    text-shadow: rgb(70, 68, 191) 0 15px 40px;
+  }
+  100% {
+    transform: translate(33%, 0);
+  }
+}
+
+p{
+  font-size: medium;
+    color: rgb(200, 200, 247);
+}
+
+.about {
+  max-width: 600px;
+  margin: 60px auto;
+  border: 2px solid rgb(160, 160, 245);
+  color: lavander;
+  padding: 20px;
+
+  line-height: 2;
+  box-shadow: 5px 5px 0 #333;
+}
+.about a {
+    background: rgb(164, 164, 238);
+    color: lavender;
+    text-decoration: none;
+    padding: 1px 4px;
+    white-space: nowrap;
+  }
+
+button{
+    font-family: 'New Rocker', cursive;
+    color: lavender;
+    height: 40px;
+   width: 30%;
+   background-color: white;
+   border:2px solid rgba(115, 105, 255, 0.905);
+     border-radius:12px;;
+     background-color: rgb(19 19 70);
+     border-bottom-color:rgb(176 196 222);
+     background-image: linear-gradient( rgba(176,196, 222,0.5), rgba(176,196, 222,0.2) 45%, rgba(0,0,0,0.05) 51%, rgba(0,0,0,0.15));
+   mix-blend-mode: lighten;
+     
+  }
+  
+button:hover{
+  box-shadow: 0 12px 16px 0 rgba(0,0,0,0.24), 0 17px 50px 0 rgba(0,0,0,0.10);
+  }
+  
+button:active{
+   background-color: rgb(176,196,222);
+   box-shadow: 0 5px #666;
+   transform: translateY(4px);
+  }
