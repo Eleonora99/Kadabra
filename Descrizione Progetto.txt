@@ -1,0 +1,68 @@
+📦Progetto_LTW
+ ┣ 📂client      // Cartella di riferimento per i file relativi al client
+ ┃ ┣ 📂public      // Cartella pubblica di riferimento contenente files statici
+ ┃ ┃ ┣ 📂assets      // Raccolta degli assets pubblici del progetto
+ ┃ ┃ ┃ ┣ 📂cards      // Raccolta dei .png delle carte
+ ┃ ┃ ┃ ┃ ┣ 📜back_carte.png
+ ┃ ┃ ┃ ┃ ┗ 📜...  
+ ┃ ┃ ┃ ┗ 📂images      // Raccolta di immagini utilizzate nel progetto
+ ┃ ┃ ┃ ┃ ┣ 📂avatars      // Immagini profilo
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜foto1.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜...
+ ┃ ┃ ┃ ┃ ┣ 📂legend      // Iconografia della pagina "inventario.html"
+ ┃ ┃ ┃ ┃ ┃ ┣ 📜3093185.png
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜...
+ ┃ ┃ ┃ ┃ ┣ 📜favicon.ico      // Icona Sito Web
+ ┃ ┃ ┃ ┃ ┗ 📜...      // ( Altre Immagini )
+ ┃ ┃ ┣ 📂css      // Raccolta dei fogli di stile e libreria "bootstrap"
+ ┃ ┃ ┃ ┣ 📂bootstrap          /**************************************
+ ┃ ┃ ┃ ┃ ┣ 📂css              *                                    *
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜...           *          Files bootstrap           *  
+ ┃ ┃ ┃ ┃ ┣ 📂js               *         salvati in locale          *
+ ┃ ┃ ┃ ┃ ┃ ┗ 📜...           *                                    *
+ ┃ ┃ ┃ ┃ ┗ 📜bootstrap        **************************************/
+ ┃ ┃ ┃ ┣ 📜game.css           /**************************************
+ ┃ ┃ ┃ ┣ 📜help.css            *                                    *
+ ┃ ┃ ┃ ┣ 📜index.css           *                                    *
+ ┃ ┃ ┃ ┣ 📜inventario.css      *          Raccolta degli            *       
+ ┃ ┃ ┃ ┣ 📜leaderboard.css     *            Stylesheets             *
+ ┃ ┃ ┃ ┣ 📜login.css           *                                    *
+ ┃ ┃ ┃ ┣ 📜menu.css            *                                    *
+ ┃ ┃ ┃ ┣ 📜profile.css         *                                    *
+ ┃ ┃ ┃ ┗ 📜tavolo.css          **************************************/
+ ┃ ┃ ┗ 📂js      // Raccolta degli script lato client
+ ┃ ┃    ┣ 📜game.js      // Script che organizza graficamente il client al tavolo di gioco (in modo che vengano rispettati gli stessi posti per tutti i giocatori) e che si occupa di emettere richieste al server in base agli elementi con cui si interagisce, aspetta una risposta e modifica l'html di conseguenza
+ ┃ ┃    ┣ 📜inventario.js      // Si occupa di rendere dinamica la rispettiva pagina html con Vue.js, la quale mostra alcuni dati dell'utente presi dal database al momento del caricamento
+ ┃ ┃    ┣ 📜leaderboard.js      // Utilizza Vue.js ed una query a MongoDB per stilare una classifica dei 10 giocatori con i punti esperienza più alti
+ ┃ ┃    ┣ 📜login.js      // Gestisce gli errori e mostra un feedback all'utente con un popup
+ ┃ ┃    ┣ 📜menu.js      // Gestisce le richieste di reindirizzamento da parte del server, se si inserisce l'ID di un tavolo esistente
+ ┃ ┃    ┣ 📜profile.js      // Rende la pagina profile.html interattiva, gestisce una lista amici, l'immagine del profilo e le statistiche del client in tempo reale
+ ┃ ┃    ┗ 📜tavolo.js      // Elabora e mostra le informazioni del tavolo a cui il client è connesso e ne gestisce una chat privata legata all'ID 
+ ┃ ┣ 📜game.html      // Pagina nel quale viene inizializzata una nuova partita, divisa in griglia, può contere fino a 8 giocatori, la chat ed uno spazio per la mano di carte
+ ┃ ┣ 📜help.html      // Pagina di aiuto contenente un form che reinderizza, una volta completato, alla propria casella postale e genera una email compilata in base al contenuto del form
+ ┃ ┣ 📜index.html      // Pagina di benvenuto contenente una breve descrizione del progetto
+ ┃ ┣ 📜inventario.html      // Pagina contenente informazioni sulle carte presenti in Kadabra! e la relativa legenda, utile ad introdurre ed abituare il giocatore all'iconografia del gioco
+ ┃ ┣ 📜leaderboard.html      // Pagina che mostra i migliori giocatori di Kadabra! in una top 10 (ordinata in ordine decrescente in base ai punti esperienza dei giocatori, guadagnati giocando)
+ ┃ ┣ 📜login.html      // Pagina di Registrazione e Login dell'utente
+ ┃ ┣ 📜menu.html      // Pagina principale contenente riferimenti utili all'utente per la navigazione delle funzionalità del progetto
+ ┃ ┣ 📜profile.html      // Pagina che mostra le statistiche del giocatore connesso, la lista degli amici, la lista degli obbiettivi, il collegamento all'inventario ed una minima possibilità di personalizzazione  
+ ┃ ┗ 📜tavolo.html      // Pagina di intermezzo tra il menù e la partita, una "sala di attesa" dove si può chattare con i giocatori seduti allo stesso tavolo ed una volta pronti, iniziare la partita
+ ┣ 📂db_models      // Modelli contenenti la struttura dei dati contenuti nel relativo database
+ ┃ ┗ 📜user.js      // Definizione del modello "user" per la collezione di utenti gestita in MongoDB
+ ┣ 📂node_modules      // Cartella contenente moduli di nodejs richiesti dal server
+ ┃ ┗ 📜...
+ ┣ 📂server      // Cartella di riferimento per i file relativi al client
+ ┃ ┗ 📂js      // Raccolta di files javascript con definizioni di classi e funzioni utili al "setup" del gioco che viene gestito dal server
+ ┃ ┃ ┣ 📜Card.js      // Definizione della classe "Card" alla quale appartengono tutte le carte del gioco create dinamicamente con l'avvio di una partita
+ ┃ ┃ ┣ 📜card_list.js      // Simil Json con una lista di oggetti compatibili con la classe "Card", la quale viene importata all'occorrenza per creare una carta da ciascun elemento (Rappresenta nella totalità il mazzo di gioco).
+ ┃ ┃ ┣ 📜Deck.js      // Definizione classe "Deck" (Mazzo) e relative funzioni (crea mazzo, mischia, pesca)
+ ┃ ┃ ┣ 📜Game.js      // Definizione classe "Game" ed un paio funzioni di controllo (facenti riferimento al regolamento del gioco di carte) chiamate dal server durante la partita
+ ┃ ┃ ┣ 📜Player.js      // Definizione classe "Player" della quale verranno create istanze per ogni giocatore connesso ad una partita ed inserite nella lista "giocatori" della classe "Game", per tenere traccia delle statistiche di gioco in tempo reale
+ ┃ ┃ ┣ 📜setupper.js      // Funzioni per il setup dei ruoli e per la gestione di regole extra di alcuni personaggi del gioco
+ ┃ ┃ ┣ 📜Table.js      // Definizione classe "Table" con gli attributi necessari alla gestione di tavoli multipli
+ ┃ ┃ ┗ 📜utility.js      // Funzioni ausiliarie per la gestione dei tavoli e carte
+ ┣ 📜app.js      // Applicazione server lanciata con nodejs, la quale elabora e risponde a tutte le richieste dei client, in questa vengono gestiti anche dei dati volatili (come tavoli e partite) senza l'ausilio di database esterni
+ ┣ 📜Descrizione Progetto.txt      // Descrizione dei file nella directory del progetto
+ ┣ 📜package-lock.json      /* Files con informazioni sul   *
+ ┣ 📜package.json            * progetto e le sue dipendenze */       
+ ┗ 📜README.md      // Readme Github con introduzione discorsiva al progetto
